@@ -7,9 +7,11 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class TheList {
+    private String name;
     private List<Task> tasks;
 
-    public TheList() {
+    public TheList(String listName) {
+        this.name = listName;
         this.tasks = Arrays.asList(null);
     }
 
@@ -27,10 +29,14 @@ public class TheList {
     public Optional<Task> getTaskByTitle(String title) {
         Optional<Task> taskByTitle = tasks.stream()
                 .filter(t -> t.getTitle().equalsIgnoreCase(title))
-                .findFirst();
+                .findAny();
         taskByTitle.ifPresent(task -> {
             System.out.println("Task found:  " + task.getTitle());
         });
         return taskByTitle;
+    }
+
+    public void addTask(Task newTask) {
+        tasks.add(newTask);
     }
 }

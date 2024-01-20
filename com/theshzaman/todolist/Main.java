@@ -7,14 +7,22 @@ import java.time.format.DateTimeFormatter;
 public class Main {
 
     public static void main(String[] args) {
-        Task task1 = createTask("Learn Java");
 
-        Task task2 = createTask("Write first program in Java");
+        TheList myList = createTheList("MyToDo's");
+
+        createTask("Learn Java", myList);
+
+        createTask("Write first program in Java", myList);
 
     }
 
-    public static Task createTask(String taskTitle) {
+    public static TheList createTheList(String listName) {
+        return new TheList(listName);
+    }
+
+    public static Task createTask(String taskTitle, TheList list) {
         Task newTask = new Task(taskTitle);
+        list.addTask(newTask);
         return newTask;
     }
 

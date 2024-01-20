@@ -20,11 +20,12 @@ public class Task {
         this.dateCreated = stampDate();
         this.title = title;
         this.isComplete = false;
+
     }
 
     private String stampDate() {
         LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM, yyyy ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM, yyyy");
         return date.format(formatter);
         // System.out.println("Task created at: " + dateString);
     }
