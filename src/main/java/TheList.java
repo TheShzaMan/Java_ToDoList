@@ -1,5 +1,5 @@
-package com.theshzaman.todolist;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +12,7 @@ public class TheList {
 
     public TheList(String listName) {
         this.name = listName;
-        this.tasks = Arrays.asList(null);
+        this.tasks = new ArrayList<>();
     }
 
     public List<Task> getAllTasks() {
@@ -36,7 +36,8 @@ public class TheList {
         return taskByTitle;
     }
 
-    public void addTask(Task newTask) {
+    public Task addTask(Task newTask) {
         tasks.add(newTask);
+        return newTask;
     }
 }

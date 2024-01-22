@@ -1,11 +1,8 @@
-package com.theshzaman.todolist;
 
 // import java.time.date;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
 
 public class Task {
     public String dateCreated;
@@ -20,14 +17,12 @@ public class Task {
         this.dateCreated = stampDate();
         this.title = title;
         this.isComplete = false;
-
     }
 
     private String stampDate() {
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM, yyyy");
         return date.format(formatter);
-        // System.out.println("Task created at: " + dateString);
     }
 
     public void completeTask() {
